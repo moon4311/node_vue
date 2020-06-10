@@ -2,17 +2,14 @@ var express = require('express');
 var router = express.Router();
 
 // middleware that is specific to this router
-router.use(function timeLog(req, res, next) {
-  console.log('Time: ', Date.now());
+
+router.get('/', function(req, res,next) {
+  console.log('//');
+  res.location('/cms/login');
   next();
 });
 
-router.get('/', function(req, res) {
-  console.log('//');
-  res.send('main');
-});
-
-router.get('/login', function(req, res) {
+router.get('/login', function(req, res,next) {
   console.log('/login');
   res.send('login');
 });
